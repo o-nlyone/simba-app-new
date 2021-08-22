@@ -74,16 +74,17 @@ License: You must have a valid license purchased only from themeforest(the above
         <h4 class="card-title mb-1">Login Staff</h4>
         <p class="card-text mb-2">Sistem Informasi Pembayaran BPP FIKOM UMI</p>
 
-        <form class="auth-login-form mt-2" action="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/index.html" method="POST">
+        <form class="auth-login-form mt-2" action="/login" method="POST">
+            @csrf
           <div class="mb-1">
-            <label for="login-email" class="form-label">Email</label>
+            <label for="email" class="form-label">Email</label>
             <input
               type="text"
               class="form-control"
-              id="login-email"
-              name="login-email"
+              id="email"
+              name="email"
               placeholder="john@example.com"
-              aria-describedby="login-email"
+              aria-describedby="email"
               tabindex="1"
               autofocus
             />
@@ -91,7 +92,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
           <div class="mb-1">
             <div class="d-flex justify-content-between">
-              <label class="form-label" for="login-password">Password</label>
+              <label class="form-label" for="password">Password</label>
               <a href="page-auth-forgot-password-v1.html">
                 <small>Forgot Password?</small>
               </a>
@@ -100,11 +101,11 @@ License: You must have a valid license purchased only from themeforest(the above
               <input
                 type="password"
                 class="form-control form-control-merge"
-                id="login-password"
-                name="login-password"
+                id="password"
+                name="password"
                 tabindex="2"
                 placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                aria-describedby="login-password"
+                aria-describedby="password"
               />
               <span class="input-group-text cursor-pointer"><i data-feather="eye"></i></span>
             </div>
@@ -124,6 +125,15 @@ License: You must have a valid license purchased only from themeforest(the above
             <span>Hubungi CS</span>
           </a>
         </p>
+
+        @if (session()->get('error'))
+            <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+              <div class="alert-body d-flex align-items-center">
+                <i data-feather="info" class="me-50"></i>
+                <span>Email / Password <strong>Salah.</strong></span>
+              </div>
+            </div>
+        @endif
 
 
       </div>

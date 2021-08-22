@@ -157,10 +157,18 @@
                             </li>
                             <!--about end-->
 
+                        @auth
+                            <li class="nav-item custom-nav-item">
+                                <a class="nav-link custom-nav-link"
+                                    href="dashboard">Dashboard</a>
+                            </li>
+                        @endauth
+                        @guest
                             <li class="nav-item custom-nav-item">
                                 <a class="nav-link custom-nav-link"
                                     href="login">Login</a>
                             </li>
+                        @endguest
 
                             <!--button start-->
                             <li class="nav-item header-nav-last-item d-flex align-items-center">
