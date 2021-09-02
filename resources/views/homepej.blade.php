@@ -229,17 +229,21 @@
                     <div class="col-md-9 col-lg-8 col-12">
                         <div class="domain-search-wrap border gray-light-bg">
                             <h4 class="text-center">Cek Pembayaran Mahasiswa</h4>
-                            <form action="https://kohost.themetags.com/domain-search-result.php" method="GET"
+                            <form action="mhs" method="GET"
                                 class="domain-search-form my-4">
-                                <input type="text" name="domain" id="domain" class="form-control" onkeyup="this.value = this.value.toUpperCase();"
+                                @csrf
+                                <input type="text" name="nama_mhs" id="domain" class="form-control" onkeyup="this.value = this.value.toUpperCase();"
                                     placeholder="Nama Mahasiswa">
 
                                 <div class="select-group">
-                                    <input type="number" name="domain" id="domain" class="form-control"
+                                    <input type="number" name="nim" id="domain" class="form-control"
                                     placeholder="NIM" style="">
                                     <button style="margin: 10px" type="submit" class="btn btn-brand-01">
                                         Cari</button>
                                 </div>
+                                @if (session()->get('notfound'))
+                                    <p style="color : #ff7675" class="text-center">{{session('notfound')}}</p>
+                                @endif
 
                             </form>
                         </div>

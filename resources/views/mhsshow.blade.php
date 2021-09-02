@@ -5,7 +5,7 @@
 <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click"
     data-menu="vertical-menu-modern" data-col="">
 
-    @include('layout.menus')
+    @include('layout.mhsmenus')
 
     <!-- BEGIN: Content-->
     <div class="app-content content ">
@@ -40,14 +40,13 @@
                                     <h4 class="card-title">Input Pembayaran</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="/bayar" method="post" class="needs-validation" novalidate>
-                                        @csrf
+                                    <form class="needs-validation" novalidate>
                                         <div class="mb-1">
                                             <label class="form-label" for="basic-addon-name">Nomor Induk
                                                 Mahasiswa</label>
-                                                <input type="id" name="id" value="{{$mhs->id ?? ''}}" hidden>
-                                            <input type="number" name="nim" id="id_nim_mhs" class="form-control"
-                                                placeholder="130 / 131" value="{{$mhs->nim ?? ''}}" aria-label="Name"
+
+                                            <input type="number" id="basic-addon-name" class="form-control"
+                                                placeholder="130 / 131" aria-label="Name"
                                                 aria-describedby="basic-addon-name" required />
                                             <div class="valid-feedback">Looks good!</div>
                                             <div class="invalid-feedback">Please enter your name.</div>
@@ -55,35 +54,29 @@
                                         <div class="mb-1">
                                             <label class="form-label" for="basic-addon-name">Nama Mahasiswa</label>
 
-                                            <input type="text" name="nama_mhs" id="basic-addon-name" class="form-control"
+                                            <input type="text" id="basic-addon-name" class="form-control"
                                                 placeholder="Nama" aria-label="Name" aria-describedby="basic-addon-name"
-                                                value="{{$mhs->nama_mhs ?? ''}}"
                                                 disabled />
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please enter your name.</div>
                                         </div>
-                                        <div id="cardat" onclick="caridata()" class="btn btn-icon btn-outline-primary waves-effect mb-1">
-                                            <a class="d-flex align-items-center"><i
-                                            data-feather="search"></i></a></div>
+                                        <button type="submit" class="btn btn-icon btn-outline-primary waves-effect mb-1">
+                                            <a class="d-flex align-items-center" href="input"><i
+                                            data-feather="search"></i></a></button>
                                         <div class="mb-1">
                                             <label class="form-label" for="select-country1">Pilih Tagihan</label>
-                                            <select name="tahunajaran" class="form-select" id="select-country1" required>
+                                            <select class="form-select" id="select-country1" required>
                                                 <option value="">Tagihan Tahun</option>
-                                                @php
-                                                    $querys = DB::table('tahun_ajaran')->get();
-                                                    $querys = $querys->reverse();
-                                                    $jml = DB::table('tahun_ajaran')->count();
-                                                @endphp
-                                                @foreach ($querys as $ta)
-                                                    <option value="{{$ta->id}}">{{$ta->nama_ta}}</option>
-                                                @endforeach
+
                                             </select>
                                             <div class="valid-feedback">Looks good!</div>
-                                            <div class="invalid-feedback">Silahkan Pilih Tahun_Ajaran</div>
+                                            <div class="invalid-feedback">Please select your country</div>
                                         </div>
                                         <div class="mb-1">
                                             <label class="form-label" for="numeral-formatting">Jumlah Pembayaran</label>
                                             <div class="input-group has-validation">
                                                 <span class="input-group-text" id="inputGroupPrepend">Rp.</span>
-                                                <input name="jumlah" type="text" id="numeral-formatting" class="form-control numeral-mask"
+                                                <input type="text" id="numeral-formatting" class="form-control numeral-mask"
                                                     placeholder="4,750,000" aria-label="4,750,000"
                                                     required />
                                                 <div class="valid-feedback">Looks good!</div>
@@ -92,26 +85,10 @@
                                         </div>
                                         <div class="mb-1">
                                             <label for="customFile1" class="form-label">Upload Bukti</label>
-                                            <input name="bukti" class="form-control" type="file" id="customFile1" required />
+                                            <input class="form-control" type="file" id="customFile1" required />
                                         </div>
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
-                                    @if (session()->get('ta_error'))
-                                        <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
-                                            <div class="alert-body d-flex align-items-center">
-                                            <i data-feather="info" class="me-50"></i>
-                                            <span><strong>invalid </strong>{{session('ta_error')}}</span>
-                                            </div>
-                                        </div>
-                                    @endif
-                                    @if (session()->get('jml_error'))
-                                        <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
-                                            <div class="alert-body d-flex align-items-center">
-                                            <i data-feather="info" class="me-50"></i>
-                                            <span><strong>invalid </strong>{{session('jml_error')}}</span>
-                                            </div>
-                                        </div>
-                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -120,14 +97,6 @@
                         @include('layout.footers')
                         <script src="{{asset('app-assets/vendors/js/forms/cleave/cleave.min.js')}}"></script>
                         <script src="{{asset('app-assets/vendors/js/forms/cleave/addons/cleave-phone.us.js')}}"></script>
-                        <script>
-                            function caridata(){
-                                window.location.assign(('/')+'input'+('/')+document.getElementById('id_nim_mhs').value)
-                                document.getElementById('cardat').style.display = 'none';
-                            }
-
-                        </script>
 </body>
-
 
 </html>

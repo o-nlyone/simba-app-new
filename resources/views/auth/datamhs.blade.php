@@ -21,7 +21,9 @@
                             <h2 class="content-header-title float-start mb-0">Data Mahasiswa</h2>
                             <div class="breadcrumb-wrapper">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index-2.html">Mahasiswa</a>
+                                    <li class="breadcrumb-item"><a href="/dashboard">Informasi BPP</a>
+                                    </li>
+                                    <li class="breadcrumb-item active">Mahasiswa
                                     </li>
                                 </ol>
                             </div>

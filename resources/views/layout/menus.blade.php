@@ -256,7 +256,7 @@
     <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">
             <li class="nav-item me-auto"><a class="navbar-brand" href="/"><span class="brand-logo">
-                        <img src="homepage_files/logo-umi.png" class="brand-logo-img" alt=""></span>
+                        <img src="{{asset('homepage_files/logo-umi.png')}}" class="brand-logo-img" alt=""></span>
                     <h2 class="brand-text">SIMBA</h2>
                 </a></li>
             <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse"><i
@@ -268,40 +268,45 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class="{{$dashboard ?? 'nav-item'}}"><a class="d-flex align-items-center" href="dashboard"><i
+            <li class="{{$dashboard ?? 'nav-item'}}"><a class="d-flex align-items-center" href="/dashboard"><i
                         data-feather="home"></i><span class="menu-title text-truncate"
                         data-i18n="Dashboards">Dashboards</span></a>
             </li>
             <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Informasi BPP</span><i
                     data-feather="more-horizontal"></i>
             </li>
-            <li class="{{$inputdata ?? 'nav-item'}}"><a class="d-flex align-items-center" href="input"><i
+            <li class="{{$inputdata ?? 'nav-item'}}"><a class="d-flex align-items-center" href="/input"><i
                         data-feather="plus-square"></i><span class="menu-title text-truncate" data-i18n="Email">Input
                         Pembayaran</span></a>
             </li>
-            <li class="{{$tagihan ?? 'nav-item'}}"><a class="d-flex align-items-center" href="tagihan"><i
-                        data-feather="list"></i><span class="menu-title text-truncate" data-i18n="Chat">Tagihan</span></a>
-            </li>
-            <li class="@yield('tahun')"><a class="d-flex align-items-center" href="app-todo.html"><i
+            <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="list"></i><span class="menu-title text-truncate" data-i18n="Menu Levels">Tagihan</span></a>
+                <ul class="menu-content">
+                  <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">Buat Manual</span></a>
+                  </li>
+                  <li><a class="d-flex align-items-center" href="#"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="Second Level">Buat Otomatis</span></a>
+                  </li>
+                </ul>
+              </li>
+            <li class="{{$thnajaran ?? 'nav-item'}}"><a class="d-flex align-items-center" href="/thnajaran"><i
                         data-feather="calendar"></i><span class="menu-title text-truncate" data-i18n="Todo">Tahun
                         Ajaran</span></a>
             </li>
-            <li class="{{$mendata ?? 'nav-item'}}"><a class="d-flex align-items-center" href="datamhs"><i
+            <li class="{{$mendata ?? 'nav-item'}}"><a class="d-flex align-items-center" href="/datamhs"><i
                         data-feather="users"></i><span class="menu-title text-truncate" data-i18n="Calendar">Data
                         Mahasiswa</span></a>
             </li>
             <li class=" navigation-header"><span data-i18n="User Interface">Lain-Lain</span><i
                     data-feather="more-horizontal"></i>
             </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="ui-typography.html"><i
+            <li class=" nav-item"><a class="d-flex align-items-center" href="/"><i
                         data-feather="grid"></i><span class="menu-title text-truncate"
                         data-i18n="Typography">Pengaturan</span></a>
             </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="ui-typography.html"><i
+            <li class=" nav-item"><a class="d-flex align-items-center" href="/"><i
                         data-feather="phone"></i><span class="menu-title text-truncate"
                         data-i18n="Typography">Support</span></a>
             </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="Logout"><i
+            <li class=" nav-item"><a class="d-flex align-items-center" href="/logout"><i
                         data-feather="log-out"></i><span class="menu-title text-truncate"
                         data-i18n="Feather">Keluar</span></a>
             </li>

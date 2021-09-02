@@ -16,6 +16,7 @@ class CreateTahunAjaran extends Migration
         Schema::create('tahun_ajaran', function (Blueprint $table) {
             $table->id();
             $table->string('nama_ta');
+            $table->enum('semester', ['genap', 'ganjil']);
             $table->timestamps();
         });
     }

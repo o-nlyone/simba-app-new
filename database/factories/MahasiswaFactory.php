@@ -23,8 +23,8 @@ class MahasiswaFactory extends Factory
     public function definition()
     {
         return [
-            'nama_mhs' => $this->faker->name(),
-            'nim' => $this->faker->unique()->numerify('130201####'), // 'Hello 609'
+            'nama_mhs' => strtoupper($this->faker->name()),
+            'nim' => $this->faker->unique()->numerify('130201#0###'), // 'Hello 609'
             'notelp_mhs' => $this->faker->tollFreePhoneNumber,
             'jurusan' => $this->faker->randomElement($array = array ('TI','SI')),
             'angkatan' => $this->faker->numberBetween($min = 2015, $max = 2021),

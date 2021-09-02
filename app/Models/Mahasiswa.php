@@ -19,5 +19,5 @@ class Mahasiswa extends Model
         'mhs_spesial'
     ];
 
-
+    
 }
