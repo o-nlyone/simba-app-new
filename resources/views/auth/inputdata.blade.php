@@ -3,7 +3,7 @@
     use App\Models\Pembayaran;
     use App\Models\Tagihan;
 @endphp
-@extends('layout.app', ['title' => 'Input Pembayaran'])
+@include('layout.app', ['title' => 'Input Pembayaran'])
 
 @include('layout.css')
 

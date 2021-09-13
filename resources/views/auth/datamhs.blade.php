@@ -1,4 +1,4 @@
-@extends('layout.app', ['title' => 'Data Mahasiswa'])
+@include('layout.app', ['title' => 'Data Mahasiswa'])
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" type="text/css"
     href="{{asset('app-assets/css/plugins/extensions/ext-component-toastr.min.css')}}">
@@ -369,7 +369,6 @@
 
     </script>
 </body>
-<!-- END: Body-->
 
 
 </html>

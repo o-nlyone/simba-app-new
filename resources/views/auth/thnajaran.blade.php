@@ -1,4 +1,4 @@
-@extends('layout.app', ['title' => 'Tahun Ajaran'])
+@include('layout.app', ['title' => 'Tahun Ajaran'])
 
 @include('layout.css')
 

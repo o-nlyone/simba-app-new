@@ -1,4 +1,4 @@
-@extends('layout.app', ['title' => 'Tagihan BPP'])
+@include('layout.app', ['title' => 'Tagihan BPP'])
 <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css/pages/app-user.min.css')}}">
 @include('layout.css')
 

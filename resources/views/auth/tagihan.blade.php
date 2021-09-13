@@ -1,4 +1,4 @@
-@extends('layout.app', ['title' => 'Tagihan'])
+@include('layout.app', ['title' => 'Tagihan'])
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" type="text/css"
     href="{{asset('app-assets/css/plugins/extensions/ext-component-toastr.min.css')}}">
