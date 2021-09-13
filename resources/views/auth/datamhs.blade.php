@@ -1,5 +1,7 @@
 @extends('layout.app', ['title' => 'Data Mahasiswa'])
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<link rel="stylesheet" type="text/css"
+    href="{{asset('app-assets/css/plugins/extensions/ext-component-toastr.min.css')}}">
 @include('layout.css')
 
 <!-- BEGIN: Body-->
@@ -30,137 +32,344 @@
                         </div>
                     </div>
                 </div>
-        </div>
-        <div class="content-body">
-            <!-- users list start -->
-            <section class="app-user-list">
-                <!-- users filter start -->
-                <div class="card">
-                    <h5 class="card-header">Search Filter</h5>
-                    <div class="d-flex justify-content-between align-items-center mx-50 row pt-0 pb-2">
-                        <div class="col-md-4 user_role"></div>
-                        <div class="col-md-4 user_plan"></div>
-                        <div class="col-md-4 user_status"></div>
-                    </div>
-                </div>
-                <!-- users filter end -->
-                <!-- list section start -->
-                <div class="card">
-                    <div style="margin: 10pt">
-                        <div class="card-datatable table-responsive pt-0">
-                            <table class="user-list-table table dataTable" id="tbl_mhs">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Nama Mahasiswa</th>
-                                        <th>NIM</th>
-                                        <th>Jurusan</th>
-                                        <th>Angkatan</th>
-                                        <th>Status</th>
-                                        <th>Beasiswa</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                    <!-- Modal to add new user starts-->
-                    <div class="modal modal-slide-in new-user-modal fade" id="modals-slide-in">
-                        <div class="modal-dialog">
-                            <form class="add-new-user modal-content pt-0">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close">×</button>
-                                <div class="modal-header mb-1">
-                                    <h5 class="modal-title" id="exampleModalLabel">New User</h5>
+            </div>
+            <div class="content-body">
+                <!-- users list start -->
+                <section class="app-user-list">
+                    <!-- users filter start -->
+                    <div class="card">
+                        <div class="card_body">
+                            <h5 class="card-header">Filter Pencarian</h5>
+                            <div class="d-flex justify-content-between align-items-center mx-50 row pt-0 pb-2">
+                                <div class="row">
+                                    <div class="col-md-3 user_role"><label class="form-label"
+                                        for="UserRole">Jurusan</label>
+                                    <select id="filter-mhs_Jurusan" class="form-select text-capitalize mb-md-0 mb-2">
+                                        <option value=""> Jurusan </option>
+                                        <option value="TI"> Teknik Informatika </option>
+                                        <option value="SI"> Sistem Informasi </option>
+                                    </select>
                                 </div>
-                                <div class="modal-body flex-grow-1">
-                                    <div class="mb-1">
-                                        <label class="form-label" for="basic-icon-default-fullname">Full Name</label>
-                                        <input type="text" class="form-control dt-full-name"
-                                            id="basic-icon-default-fullname" placeholder="John Doe" name="user-fullname"
-                                            aria-label="John Doe" aria-describedby="basic-icon-default-fullname2" />
-                                    </div>
-                                    <div class="mb-1">
-                                        <label class="form-label" for="basic-icon-default-uname">Username</label>
-                                        <input type="text" id="basic-icon-default-uname" class="form-control dt-uname"
-                                            placeholder="Web Developer" aria-label="jdoe1"
-                                            aria-describedby="basic-icon-default-uname2" name="user-name" />
-                                    </div>
-                                    <div class="mb-1">
-                                        <label class="form-label" for="basic-icon-default-email">Email</label>
-                                        <input type="text" id="basic-icon-default-email" class="form-control dt-email"
-                                            placeholder="john.doe@example.com" aria-label="john.doe@example.com"
-                                            aria-describedby="basic-icon-default-email2" name="user-email" />
-                                        <small class="form-text"> You can use letters, numbers & periods </small>
-                                    </div>
-                                    <div class="mb-1">
-                                        <label class="form-label" for="user-role">User Role</label>
-                                        <select id="user-role" class="form-select">
-                                            <option value="subscriber">Subscriber</option>
-                                            <option value="editor">Editor</option>
-                                            <option value="maintainer">Maintainer</option>
-                                            <option value="author">Author</option>
-                                            <option value="admin">Admin</option>
+                                    <div class="col-md-3 user_role"><label class="form-label"
+                                            for="UserRole">Angkatan</label>
+                                        <select id="filter-mhs_Angkatan" class="form-select text-capitalize mb-md-0 mb-2">
+                                            <option value=""> Angkatan </option>
+                                            @for ($i = 12; $i<50; $i++) <option value="20{{$i}}"> 20{{$i}} </option>
+                                                @endfor
                                         </select>
                                     </div>
-                                    <div class="mb-2">
-                                        <label class="form-label" for="user-plan">Select Plan</label>
-                                        <select id="user-plan" class="form-select">
-                                            <option value="basic">Basic</option>
-                                            <option value="enterprise">Enterprise</option>
-                                            <option value="company">Company</option>
-                                            <option value="team">Team</option>
+                                    <div class="col-md-3 user_plan"><label class="form-label"
+                                            for="UserRole">Status</label>
+                                        <select id="filter-status_mhs" class="form-select text-capitalize mb-md-0 mb-2">
+                                            <option value=""> Status </option>
+                                            <option value="aktif"> Aktif </option>
+                                            <option value="nonaktif"> Nonaktif </option>
+                                            <option value="cuti"> Cuti </option>
+                                            <option value="lulus"> Lulus </option>
                                         </select>
                                     </div>
-                                    <button type="submit" class="btn btn-primary me-1 data-submit">Submit</button>
-                                    <button type="reset" class="btn btn-outline-secondary"
-                                        data-bs-dismiss="modal">Cancel</button>
+                                        <div class="col-md-3 user_status"><label class="form-label"
+                                                for="UserRole">Beasiswa</label>
+                                            <select id="filter-mhs_Beasiswa" class="form-select text-capitalize mb-md-0 mb-2">
+                                                <option value=""> Beasiswa </option>
+                                                <option value="mhs_binaan1"> Mahasiswa Binaan 1 </option>
+                                                <option value="mhs_binaan2"> Mahasiswa Binaan 2 </option>
+                                            </select>
+                                        </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
+                        <!-- users filter end -->
+                        <!-- list section start -->
+                        <div class="card">
+                            <div style="margin: 10pt">
+                                <div class="card-datatable table-responsive pt-0">
+                                    <button href="javascript:void(0)" class="btn btn-success" id="tombol-tambah">
+                                        <i data-feather='user-plus'></i>
+                                    </button>
+                                    <table class="user-list-table table dataTable" id="tbl_mhs">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Nama Mahasiswa</th>
+                                                <th>NIM</th>
+                                                <th>Jurusan</th>
+                                                <th>Angkatan</th>
+                                                <th>Status</th>
+                                                <th>Beasiswa</th>
+                                                <th>Aksi</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal to add new user starts-->
+                        <div class="modal modal-slide-in new-user-modal fade" id="tambah-edit-modal">
+                            <div class="modal-dialog">
+                                <form id="form-tambah-edit" class="add-new-user modal-content pt-0">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close">×</button>
+                                    <div class="modal-header mb-1">
+                                        <h5 class="modal-title" id="modal-judul">New User</h5>
+                                    </div>
+                                    <div class="modal-body flex-grow-1">
+                                        <input type="text" id="id" name="id" value="" hidden/>
+                                        <div class="mb-1">
+                                            <label class="form-label" for="basic-icon-default-fullname">Nama Lengkap</label>
+                                            <input type="text" class="form-control dt-full-name"
+                                                id="nama_mhs" placeholder="Nama Lengkap"
+                                                name="nama_mhs" aria-label="Nama Lengkap" value=""
+                                                aria-describedby="basic-icon-default-fullname2" onkeyup="this.value = this.value.toUpperCase();" />
+                                        </div>
+                                        <div class="mb-1">
+                                            <label class="form-label" for="basic-icon-default-uname">Nomor Induk Mahasiswa</label>
+                                            <input type="number" id="nim"
+                                                class="form-control dt-uname" placeholder="130xxxxxx"
+                                                value="" name="nim"
+                                                aria-label="jdoe1" aria-describedby="basic-icon-default-uname2" />
+                                        </div>
+                                        <div class="mb-1">
+                                            <label class="form-label" for="basic-icon-default-fullname">Nomor Telepon</label>
+                                            <input type="text" class="form-control dt-full-name"
+                                                id="notelp_mhs" placeholder="Nomor Telepon"
+                                                name="notelp_mhs" aria-label="Nomor Telepon" value=""
+                                                aria-describedby="basic-icon-default-fullname2" />
+                                        </div>
+                                        <div class="mb-1">
+                                            <label class="form-label" for="basic-icon-default-email">Jurusan</label>
+                                            <select name="jurusan" class="form-select" id="jurusan" required>
+                                                <option value="">Jurusan</option>
+                                                <option value="TI"> Teknik Informatika</option>
+                                                <option value="SI"> Sistem Informasi</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-1">
+                                            <label class="form-label" for="user-role">Angkatan</label>
+                                            <select name="angkatan" id="angkatan" class="form-select">
+                                                <option value="">Angkatan</option>
+                                                @for ($i = 12; $i<50; $i++)
+                                                <option value="20{{$i}}"> 20{{$i}} </option>
+                                                @endfor
+                                            </select>
+                                        </div>
+                                        <div class="mb-2">
+                                            <label class="form-label" for="user-plan">Status Mahasiswa</label>
+                                            <select name="status_mhs" id="status_mhs" class="form-select">
+                                                <option value="">Status</option>
+                                                <option value="aktif">aktif</option>
+                                                <option value="nonaktif">nonaktif</option>
+                                                <option value="cuti">cuti</option>
+                                                <option value="lulus">lulus</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-2">
+                                            <label class="form-label" for="user-plan">Beasiswa Mahasiswa</label>
+                                            <select name="mhs_spesial" id="mhs_spesial" class="form-select">
+                                                <option value=""> Beasiswa </option>
+                                                <option value="tidak"> tidak </option>
+                                                <option value="mhs_binaan1"> Mahasiswa Binaan 1 </option>
+                                                <option value="mhs_binaan2"> Mahasiswa Binaan 2 </option>
+                                            </select>
+                                        </div>
+                                        <button id="tombol-simpan" type="submit" class="btn btn-primary me-1 data-submit">Submit</button>
+                                        <button type="reset" class="btn btn-outline-secondary"
+                                            data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Modal to add new user Ends-->
+                        {{-- Modal Untuk Konfirmasi Delete --}}
+                        <div class="modal fade text-start" tabindex="-1" role="dialog" id="konfirmasi-modal"
+                            data-backdrop="false">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-danger"><b>PERHATIAN</b></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><b>Jika Menghapus Mahasiswa maka,</b></p>
+                                        <p>Data Mahasiswa tersebut hilang selamanya, apakah anda yakin?</p>
+                                    </div>
+                                    <div class="modal-footer bg-whitesmoke br">
+                                        <button type="button" class="btn btn-primary"
+                                            data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger" name="tombol-hapus"
+                                            id="tombol-hapus">Hapus
+                                            Data</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- end modal konfirmasi delete --}}
                     </div>
-                    <!-- Modal to add new user Ends-->
-                </div>
-                <!-- list section end -->
-            </section>
-            <!-- users list ends -->
+                    <!-- list section end -->
+                </section>
+                <!-- users list ends -->
 
+            </div>
         </div>
-    </div>
     </div>
     <!-- END: Content-->
-    @include('layout.footers')
+    @if (session()->get('ses_success'))
     <script>
+        $("#tombol-simpan").on("click", (function () {
+            "use strict";
+                // console.log(document.getElementById('tombol-simpan').innerText);
+                if (document.getElementById('tombol-simpan').innerText == 'Simpan'){
+                    toastr.success("👋 Sukses Mengedit Data Mahasiswa", "Data Teredit!", {
+                        positionClass: "toast-bottom-left",
+                        closeButton: !0,
+                        tapToDismiss: !1,
+                        rtl: o
+                    })
+                } else if (document.getElementById('tombol-simpan').innerText == 'Tambah') {
+                    toastr.success("👋 Sukses Menambah Data Mahasiswa", "Data Tertambah!", {
+                        positionClass: "toast-bottom-left",
+                        closeButton: !0,
+                        tapToDismiss: !1,
+                        rtl: o
+                    })
+                }
+            }
+    </script>
+    @endif
+    @include('layout.footers')
+
+
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            })
+        });
+
+        //tomboh tambah mhs
+        $('#tombol-tambah').click(function () {
+            $('#tombol-simpan').html("Tambah"); //valuenya menjadi create-post
+            $('#id').val(''); //valuenya menjadi kosong
+            $('#form-tambah-edit').trigger("reset"); //mereset semua input dll didalamnya
+            $('#modal-judul').html("Tambah Mahasiswa Baru"); //valuenya tambah pegawai baru
+            $('#tambah-edit-modal').modal('show'); //modal tampil
+        });
+
         $(document).ready( function () {
             $('#tbl_mhs').DataTable(
                 {
+                serverSide : true,
                 processing : true,
                 language : {
-                    processing : "<span>Tunggu</span>"
+                    processing : "<div class='spinner-border text-primary' role='status'> <span class='visually-hidden'>Loading...</span></div>"
                 },
-                serverside : true,
+
                 ajax : {
                     url: '{{ route('datamhs.index') }}',
                     type: 'GET'
                 },
                 columns : [
-                    {data: 'id'},
                     {data: 'nama_mhs'},
                     {data: 'nim'},
                     {data: 'jurusan'},
                     {data: 'angkatan'},
                     {data: 'status_mhs'},
                     {data: 'mhs_spesial'},
+                    {data: 'action'}
                 ],
                 order: [[0, 'asc']],
+                "drawCallback" : function( settings ) {
+                    feather.replace();
+                }
 
             },
             );
         } );
+
+        if ($("#form-tambah-edit").length > 0) {
+            $("#form-tambah-edit").validate({
+                submitHandler: function (form) {
+                    var actionType = $('#tombol-simpan').val();
+                    $('#tombol-simpan').html('Mengirim..');
+
+                    $.ajax({
+                        data: $('#form-tambah-edit')
+                            .serialize(), //function yang dipakai agar value pada form-control seperti input, textarea, select dll dapat digunakan pada URL query string ketika melakukan ajax request
+                        url: "{{ route('datamhs.store') }}", //url simpan data
+                        type: "POST", //karena simpan kita pakai method POST
+                        dataType: 'json', //data tipe kita kirim berupa JSON
+                        success: function (data) { //jika berhasil
+                            $('#tambah-edit-modal').modal('hide'); //modal hide
+                            $('#tombol-simpan').html('Simpan'); //tombol simpan
+                            $('#form-tambah-edit').trigger("reset");
+                            var oTable = $('#tbl_mhs').dataTable(); //inialisasi datatable
+                            oTable.fnDraw(false);
+                        },
+                        error: function (data) { //jika error tampilkan error pada console
+                            console.log('Error:', data);
+                            $('#tombol-simpan').html('Simpan');
+                        }
+                    });
+                }
+            })
+        }
+
+        //tombol edit post di klik
+        $('body').on('click', '.edit-post', function () {
+            var data_id = $(this).data('id');
+            console.log(data_id);
+            console.log("Berhasil Tertekan");
+            $.get('datamhs/' + data_id + '/edit', function (data) {
+                $('#modal-judul').html("Edit Mahasiswa");
+                $('#tombol-simpan').html("Simpan");
+                $('#tambah-edit-modal').modal('show');
+
+                //set value masing-masing id berdasarkan data yg diperoleh dari ajax get request diatas
+                $('#id').val(data.id);
+                $('#nama_mhs').val(data.nama_mhs);
+                $('#nim').val(data.nim);
+                $('#jurusan').val(data.jurusan);
+                $('#angkatan').val(data.angkatan);
+                $('#status_mhs').val(data.status_mhs);
+                $('#mhs_spesial').val(data.mhs_spesial);
+                $('#notelp_mhs').val(data.notelp_mhs);
+            })
+        });
+
+        //Modal Konfirmasi Delete
+        $(document).on('click', '.delete', function () {
+            dataId = $(this).attr('id');
+            $('#konfirmasi-modal').modal('show');
+        });
+
+        //jika tombol hapus pada modal konfirmasi di klik maka
+        $('#tombol-hapus').click(function () {
+            $.ajax({
+                url: "/datamhs/" + dataId, //eksekusi ajax ke url ini
+                type: 'DELETE',
+                beforeSend: function () {
+                    $('#tombol-hapus').text('Hapus Data'); //set text untuk tombol hapus
+                },
+                success: function (data) { //jika sukses
+                    setTimeout(function () {
+                        $('#konfirmasi-modal').modal('hide'); //sembunyikan konfirmasi modal
+                        var oTable = $('#tbl_mhs').dataTable();
+                        oTable.fnDraw(false); //reset datatable
+                    });
+                }
+            })
+        });
+
+
+
+
     </script>
 </body>
 <!-- END: Body-->
 
-<!-- Mirrored from pixinvent.com/demo/vuexy-html-bootstrap-admin-template/html/ltr/vertical-menu-template/dashboard-analytics.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Aug 2021 13:14:24 GMT -->
 
 </html>

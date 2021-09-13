@@ -37,6 +37,7 @@
  <script src="{{asset('app-assets/js/scripts/pages/dashboard-analytics.min.js')}}"></script>
  <script src="{{asset('app-assets/js/scripts/pages/app-invoice-list.min.js')}}"></script>
  {{-- <script src="{{asset('app-assets/js/scripts/pages/app-user-list.min.js')}}"></script> --}}
+ <script src="{{asset('app-assets/js/scripts/extensions/ext-component-toastr.min.js')}}"></script>
  <script src="{{asset('app-assets/js/scripts/forms/form-input-mask.min.js')}}"></script>
  <!-- END: Page JS-->
 

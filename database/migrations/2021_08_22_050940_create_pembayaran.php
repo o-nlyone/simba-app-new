@@ -18,7 +18,8 @@ class CreatePembayaran extends Migration
             $table->foreignId('id_tagihan')->constrained('tagihan');
             $table->bigInteger('jml_bayar');
             $table->string('bukti_bayar');
-            $table->enum('status_notif', ['sudah', 'belum']);
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

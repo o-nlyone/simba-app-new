@@ -18,6 +18,7 @@ class CreateTagihan extends Migration
             $table->foreignId('id_mhs')->constrained('mahasiswas');
             $table->foreignId('id_ta')->constrained('tahun_ajaran');
             $table->bigInteger('jml_tagihan');
+            $table->timestamps();
         });
     }
 
