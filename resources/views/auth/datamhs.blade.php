@@ -321,8 +321,6 @@
         //tombol edit post di klik
         $('body').on('click', '.edit-post', function () {
             var data_id = $(this).data('id');
-            console.log(data_id);
-            console.log("Berhasil Tertekan");
             $.get('datamhs/' + data_id + '/edit', function (data) {
                 $('#modal-judul').html("Edit Mahasiswa");
                 $('#tombol-simpan').html("Simpan");

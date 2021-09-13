@@ -110,8 +110,6 @@
             var values = {
                 'jml_tagihan' : document.getElementById('jml'+data_id).value
             };
-            console.log(data_id);
-            console.log(values);
             $.ajax({
                 url: "/tagihan/"+ data_id+"/edit", //url simpan data
                 method: "GET", //karena simpan kita pakai method POST

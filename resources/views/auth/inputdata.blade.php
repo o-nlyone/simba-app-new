@@ -215,11 +215,16 @@
                                                                             <i data-feather="more-vertical"></i>
                                                                           </button>
                                                                           <div class="dropdown-menu">
-                                                                            <a class="dropdown-item" href="/bayar/{{$bayar->id}}/delete">
-                                                                              <i data-feather="trash" class="me-50"></i>
-                                                                              <span>Delete</span>
+                                                                            <a class="dropdown-item" target="_blank" href="https://api.whatsapp.com/send?phone=62{{$mhs->notelp_mhs}}&text=Assalamualaikum%20Wr.%20Wb.%0AKami%20Dari%20Fakultas%20Ilmu%20Komputer%20Menginformasikan%20Pembayaran%20yang%20dilakukan%2C%0A%0ASebesar%2C%0ARp.%20{{$bayar->jml_bayar}}%0A%0AUntuk%20Mahasiswa%2C%0A{{$mhs->nama_mhs}}" >
+                                                                                <i data-feather='send'></i>
+                                                                              <span>Kirim Pesan</span>
                                                                             </a>
+                                                                            <a class="dropdown-item" href="/bayar/{{$bayar->id}}/delete">
+                                                                                <i data-feather="trash" class="me-50"></i>
+                                                                                <span>Delete</span>
+                                                                              </a>
                                                                           </div>
+
                                                                         </button>
                                                                     </td>
                                                                 </tr>

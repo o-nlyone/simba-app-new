@@ -199,7 +199,7 @@
                         <div class="hero-slider-content text-white py-5">
                             <div class="headline mb-4">
                                 <p class="mb-0"><i class="fas fa-bell rounded-circle mr-2"></i> <span
-                                        class="font-weight-bold">3 Hari Lagi, </span> Pembayaran Terakhir</p>
+                                        class="font-weight-bold">Pembayaran</span> Terakhir</p>
                             </div>
                             <h1 class="text-white">Sistem Informasi Pembayaran BPP Mahasiswa FIKOM UMI</h1>
                             <p class="lead">Periksa Pembayaran BPP Mahasiswa FIKOM UMI</p>
@@ -329,90 +329,6 @@
                                     class="fab fa-facebook"></i></a></li>
                     </ul>
                 </div>
-                <div class="col-md-12 col-lg-8">
-                    <div class="row mt-0">
-                        <div class="col-sm-6 col-md-3 col-lg-3 mb-4 mb-sm-4 mb-md-0 mb-lg-0">
-                            <h6 class="font-weight-normal">Resources</h6>
-                            <ul>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Help</a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Events</a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Live sessions</a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Open source</a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Documentation</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6 col-md-3 col-lg-3 mb-4 mb-sm-4 mb-md-0 mb-lg-0">
-                            <h6 class="font-weight-normal">Products</h6>
-                            <ul>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Pricing</a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Navigation</a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">AI Studio</a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Page Speed </a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Performance</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6 col-md-3 col-lg-3 mb-4 mb-sm-4 mb-md-0 mb-lg-0">
-                            <h6 class="font-weight-normal">Company</h6>
-                            <ul>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">About Us</a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Careers</a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Customers</a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Community</a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Our Team</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6 col-md-3 col-lg-3">
-                            <h6 class="font-weight-normal">Support</h6>
-                            <ul>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">FAQ</a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Sells</a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Contact Support</a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Network Status</a>
-                                </li>
-                                <li>
-                                    <a href="https://kohost.themetags.com/index-top-navbar.html#">Product Services</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <!--end of container-->
@@ -424,18 +340,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-7">
                     <div class="copyright-wrap small-text">
-                        <p class="mb-0">© ThemeTags Design Agency, All rights reserved</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-5">
-                    <div class="terms-policy-wrap text-lg-right text-md-right text-left">
-                        <ul class="list-inline">
-                            <li class="list-inline-item"><a class="small-text"
-                                    href="https://kohost.themetags.com/terms-condition.html">Terms &amp; Condition</a>
-                            </li>
-                            <li class="list-inline-item"><a class="small-text"
-                                    href="https://kohost.themetags.com/privacy-policy.html">Privacy Policy</a></li>
-                        </ul>
+                        <p class="mb-0">© 2021 - Fakultas Ilmu Komputer Universitas Muslim Indonesia</p>
                     </div>
                 </div>
             </div>
