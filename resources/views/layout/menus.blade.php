@@ -7,7 +7,7 @@
               <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li>
             </ul>
             <ul class="nav navbar-nav bookmark-icons">
-              <li class="nav-item d-none d-lg-block"><a class="nav-link" href="/input" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Input Pembayaran"><i class="ficon" data-feather="plus-square"></i></a></li>
+              <li class="nav-item d-none d-lg-block"><a class="nav-link" href="/input" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Pembayaran"><i class="ficon" data-feather="plus-square"></i></a></li>
               <li class="nav-item d-none d-lg-block"><a class="nav-link" href="/tagihan" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tagihan"><i class="ficon" data-feather="list"></i></a></li>
               <li class="nav-item d-none d-lg-block"><a class="nav-link" href="/thnajaran" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tahun Ajaran"><i class="ficon" data-feather="calendar"></i></a></li>
               <li class="nav-item d-none d-lg-block"><a class="nav-link" href="/datamhs" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Data Mahasiswa "><i class="ficon" data-feather="users"></i></a></li>
@@ -23,7 +23,7 @@
                     id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">{{auth()->user()->name}}</span><span
                             class="user-status">Admin</span></div><span class="avatar"><img class="round"
-                            src="{{asset('app-assets/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar" height="40"
+                            src="{{asset('app-assets/images/portrait/small/default.jpeg')}}" alt="avatar" height="40"
                             width="40"><span class="avatar-status-online"></span></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="disabled dropdown-item" href="page-account-settings.html"><i
@@ -164,7 +164,7 @@
                     data-feather="more-horizontal"></i>
             </li>
             <li class="{{$inputdata ?? 'nav-item'}}"><a class="d-flex align-items-center" href="/input"><i
-                        data-feather="plus-square"></i><span class="menu-title text-truncate" data-i18n="Email">Input
+                        data-feather="plus-square"></i><span class="menu-title text-truncate" data-i18n="Email">
                         Pembayaran</span></a>
             </li>
             <li class="{{$tagihan ?? 'nav-item'}}"><a class="d-flex align-items-center" href="/tagihan"><i
