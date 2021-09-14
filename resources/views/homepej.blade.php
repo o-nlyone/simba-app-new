@@ -69,13 +69,13 @@
                                     <!--menu title with subtitle and icon item start-->
                                     <div class="title-with-icon-item">
                                         <a class="title-with-icon-link"
-                                            href="https://kohost.themetags.com/contact-us.html">
+                                            href="https://fikom.umi.ac.id/informasi-akademik/">
                                             <div class="media align-items-center">
                                                 <img class="menu-titile-icon" src="{{asset('homepage_files/chat-mobile.svg')}}"
                                                     alt="SVG">
                                                 <div class="media-body">
-                                                    <span class="u-header__promo-title">Contact Us</span>
-                                                    <small class="u-header__promo-text">Face any problem contact with us
+                                                    <span class="u-header__promo-title">Informasi Akademik</span>
+                                                    <small class="u-header__promo-text">Informasi Tentang Akademik Fakultas
                                                     </small>
                                                 </div>
                                             </div>
@@ -86,13 +86,13 @@
                                     <!--menu title with subtitle and icon item start-->
                                     <div class="title-with-icon-item">
                                         <a class="title-with-icon-link"
-                                            href="https://kohost.themetags.com/about-us.html">
+                                            href="https://fikom.umi.ac.id/jadwal-kegiatan-akademik/">
                                             <div class="media align-items-center">
                                                 <img class="menu-titile-icon" src="{{asset('homepage_files/community.svg')}}"
                                                     alt="SVG">
                                                 <div class="media-body">
-                                                    <span class="u-header__promo-title">About Us</span>
-                                                    <small class="u-header__promo-text">We are leading hosting company
+                                                    <span class="u-header__promo-title">Jadwal Kegiatan Akademik</span>
+                                                    <small class="u-header__promo-text">Informasi Tentang Jadwal Akademik
                                                     </small>
                                                 </div>
                                             </div>
@@ -103,14 +103,13 @@
                                     <!--menu title with subtitle and icon item start-->
                                     <div class="title-with-icon-item">
                                         <a class="title-with-icon-link"
-                                            href="https://kohost.themetags.com/partners.html">
+                                            href="https://fikom.umi.ac.id/informasi-kkn-ta-2020-2021/">
                                             <div class="media align-items-center">
                                                 <img class="menu-titile-icon" src="{{asset('homepage_files/partner.svg')}}"
                                                     alt="SVG">
                                                 <div class="media-body">
-                                                    <span class="u-header__promo-title">Our Partner</span>
-                                                    <small class="u-header__promo-text">We have trusted partners
-                                                        globally
+                                                    <span class="u-header__promo-title">Kuliah Kerja Nyata 2020-2021</span>
+                                                    <small class="u-header__promo-text">Informasi Tentang KKN 2020-2021
                                                     </small>
                                                 </div>
                                             </div>
@@ -121,31 +120,13 @@
                                     <!--menu title with subtitle and icon item start-->
                                     <div class="title-with-icon-item">
                                         <a class="title-with-icon-link"
-                                            href="https://kohost.themetags.com/network.html">
+                                            href="https://fikom.umi.ac.id/profil/rencana-dan-program-kerja-tahunan/">
                                             <div class="media align-items-center">
                                                 <img class="menu-titile-icon" src="{{asset('homepage_files/network.svg')}}"
                                                     alt="SVG">
                                                 <div class="media-body">
-                                                    <span class="u-header__promo-title">Network</span>
-                                                    <small class="u-header__promo-text">Keep your data save and secure
-                                                    </small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <!--menu title with subtitle and icon item end-->
-
-                                    <!--menu title with subtitle and icon item start-->
-                                    <div class="title-with-icon-item">
-                                        <a class="title-with-icon-link"
-                                            href="https://kohost.themetags.com/blog-grid.html">
-                                            <div class="media align-items-center">
-                                                <img class="menu-titile-icon" src="{{asset('homepage_files/blog.svg')}}" alt="SVG">
-                                                <div class="media-body">
-                                                    <span class="u-header__promo-title">Company Blog</span>
-                                                    <small class="u-header__promo-text">Industry latest technology news
-                                                        &amp;
-                                                        tips
+                                                    <span class="u-header__promo-title">Rencana & Program Kerja Mingguan</span>
+                                                    <small class="u-header__promo-text">Semua rencana dan program kerja FIKOM
                                                     </small>
                                                 </div>
                                             </div>
@@ -309,7 +290,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-4 mb-4 mb-md-4 mb-sm-4 mb-lg-0">
-                    <a href="https://kohost.themetags.com/index-top-navbar.html#" class="navbar-brand mb-2">
+                    <a href="/" class="navbar-brand mb-2">
                         <img src="{{asset('homepage_files/logo-white.png')}}" alt="logo" class="img-fluid-logo">
                     </a>
                     <br>
