@@ -91,12 +91,7 @@
                                                         <span
                                                             class="card-text user-info-title fw-bold mb-0">Jurusan</span>
                                                     </div>
-                                                    <p class="card-text mb-0">@if ($mhs->jurusan == 'TI')
-                                                        Teknik Informatika
-                                                        @endif
-                                                        @if ($mhs->jurusan == 'SI')
-                                                        Sistem Informasi
-                                                        @endif
+                                                    <p class="card-text mb-0">{{$mhs->jurusan}}
                                                     </p>
                                                 </div>
                                                 <div class="d-flex flex-wrap my-50">
