@@ -44,7 +44,7 @@
                                 <div class="row">
                                     <div class="col-md-3 user_role"><label class="form-label"
                                         for="UserRole">Jurusan</label>
-                                    <select id="filter-mhs_Jurusan" class="form-select text-capitalize mb-md-0 mb-2">
+                                    <select id="filter-mhs_Jurusan" class="form-select text-capitalize mb-md-0 mb-2 filter">
                                         <option value=""> Jurusan </option>
                                         <option value="TI"> Teknik Informatika </option>
                                         <option value="SI"> Sistem Informasi </option>
@@ -52,7 +52,7 @@
                                 </div>
                                     <div class="col-md-3 user_role"><label class="form-label"
                                             for="UserRole">Angkatan</label>
-                                        <select id="filter-mhs_Angkatan" class="form-select text-capitalize mb-md-0 mb-2">
+                                        <select id="filter-mhs_Angkatan" class="form-select text-capitalize mb-md-0 mb-2 filter">
                                             <option value=""> Angkatan </option>
                                             @for ($i = 12; $i<50; $i++) <option value="20{{$i}}"> 20{{$i}} </option>
                                                 @endfor
@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="col-md-3 user_plan"><label class="form-label"
                                             for="UserRole">Status</label>
-                                        <select id="filter-status_mhs" class="form-select text-capitalize mb-md-0 mb-2">
+                                        <select id="filter-status_mhs" class="form-select text-capitalize mb-md-0 mb-2 filter">
                                             <option value=""> Status </option>
                                             <option value="aktif"> Aktif </option>
                                             <option value="nonaktif"> Nonaktif </option>
@@ -70,8 +70,9 @@
                                     </div>
                                         <div class="col-md-3 user_status"><label class="form-label"
                                                 for="UserRole">Beasiswa</label>
-                                            <select id="filter-mhs_Beasiswa" class="form-select text-capitalize mb-md-0 mb-2">
+                                            <select id="filter-mhs_Beasiswa" class="form-select text-capitalize mb-md-0 mb-2 filter">
                                                 <option value=""> Beasiswa </option>
+                                                <option value="tidak"> tidak </option>
                                                 <option value="mhs_binaan1"> Mahasiswa Binaan 1 </option>
                                                 <option value="mhs_binaan2"> Mahasiswa Binaan 2 </option>
                                             </select>
@@ -179,7 +180,7 @@
                             </div>
                         </div>
                         <!-- Modal to add new user Ends-->
-                        {{-- Modal Untuk Konfirmasi Delete --}}
+                        {{-- Modal Untuk Konfirmasi Dee --}}
                         <div class="modal fade text-start" tabindex="-1" role="dialog" id="konfirmasi-modal"
                             data-backdrop="false">
                             <div class="modal-dialog" role="document">
@@ -203,7 +204,7 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- end modal konfirmasi delete --}}
+                        {{-- end modal konfirmasi dee --}}
                     </div>
                     <!-- list section end -->
                 </section>
@@ -213,35 +214,14 @@
         </div>
     </div>
     <!-- END: Content-->
-    @if (session()->get('ses_success'))
-    <script>
-        $("#tombol-simpan").on("click", (function () {
-            "use strict";
-                // console.log(document.getElementById('tombol-simpan').innerText);
-                if (document.getElementById('tombol-simpan').innerText == 'Simpan'){
-                    toastr.success("👋 Sukses Mengedit Data Mahasiswa", "Data Teredit!", {
-                        positionClass: "toast-bottom-left",
-                        closeButton: !0,
-                        tapToDismiss: !1,
-                        rtl: o
-                    })
-                } else if (document.getElementById('tombol-simpan').innerText == 'Tambah') {
-                    toastr.success("👋 Sukses Menambah Data Mahasiswa", "Data Tertambah!", {
-                        positionClass: "toast-bottom-left",
-                        closeButton: !0,
-                        tapToDismiss: !1,
-                        rtl: o
-                    })
-                }
-            }
-    </script>
-    @endif
     @include('layout.footers')
-
-
-
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
     <script>
+         let prodi = $("#filter-mhs_Jurusan").val();
+         let angkatan = $("#filter-mhs_Angkatan").val();
+         let status = $("#filter-status_mhs").val();
+         let beasiswa = $("#filter-mhs_Beasiswa").val();
+         var table = '';
         $(document).ready(function () {
             $.ajaxSetup({
                 headers: {
@@ -260,7 +240,7 @@
         });
 
         $(document).ready( function () {
-            $('#tbl_mhs').DataTable(
+            const table = $('#tbl_mhs').DataTable(
                 {
                 serverSide : true,
                 processing : true,
@@ -270,7 +250,14 @@
 
                 ajax : {
                     url: '{{ route('datamhs.index') }}',
-                    type: 'GET'
+                    type: 'GET',
+                    data: function(d){
+                        d.prodi = prodi;
+                        d.angkatan = angkatan;
+                        d.status = status;
+                        d.beasiswa = beasiswa;
+                        return d;
+                    }
                 },
                 columns : [
                     {data: 'nama_mhs'},
@@ -288,7 +275,9 @@
 
             },
             );
-        } );
+            // return table;
+        }
+        );
 
         if ($("#form-tambah-edit").length > 0) {
             $("#form-tambah-edit").validate({
@@ -338,8 +327,8 @@
             })
         });
 
-        //Modal Konfirmasi Delete
-        $(document).on('click', '.delete', function () {
+        //Modal Konfirmasi Dee
+        $(document).on('click', '.dee', function () {
             dataId = $(this).attr('id');
             $('#konfirmasi-modal').modal('show');
         });
@@ -348,7 +337,7 @@
         $('#tombol-hapus').click(function () {
             $.ajax({
                 url: "/datamhs/" + dataId, //eksekusi ajax ke url ini
-                type: 'DELETE',
+                type: 'DEE',
                 beforeSend: function () {
                     $('#tombol-hapus').text('Hapus Data'); //set text untuk tombol hapus
                 },
@@ -363,7 +352,18 @@
         });
 
 
+        $(".filter").on('change', function(){
+            console.log('filter click');
 
+            prodi = $("#filter-mhs_Jurusan").val();
+            angkatan = $("#filter-mhs_Angkatan").val();
+            status = $("#filter-status_mhs").val();
+            beasiswa = $("#filter-mhs_Beasiswa").val();
+
+            console.log(prodi, angkatan, status, beasiswa);
+            var oTable = $('#tbl_mhs').dataTable();
+            oTable.fnDraw(false);
+        });
 
     </script>
 </body>

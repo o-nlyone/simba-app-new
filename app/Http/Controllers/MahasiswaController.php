@@ -20,6 +20,43 @@ class MahasiswaController extends Controller
     public function index(Request $request)
     {
         $list_mahasiswa = Mahasiswa::all();
+
+        if($request->input('angkatan')!= null){
+            $list_mahasiswa = Mahasiswa::where('angkatan', $request->input('angkatan'));
+        }
+
+        if($request->input('prodi')!= null){
+            if($request->input('prodi') == "TI"){
+                $list_mahasiswa = $list_mahasiswa->where('jurusan', 'TI');
+            }else if ($request->input('prodi')== "SI"){
+                $list_mahasiswa = $list_mahasiswa->where('jurusan', 'SI');
+            }
+        }
+
+        if($request->input('status')!= null){
+            if($request->input('status') == "aktif"){
+                $list_mahasiswa = $list_mahasiswa->where('status_mhs', 'aktif');
+            }else if ($request->input('status')== "nonaktif"){
+                $list_mahasiswa = $list_mahasiswa->where('status_mhs', 'nonaktif');
+            }else if ($request->input('status')== "cuti"){
+                $list_mahasiswa = $list_mahasiswa->where('status_mhs', 'cuti');
+            }else if ($request->input('status')== "lulus"){
+                $list_mahasiswa = $list_mahasiswa->where('status_mhs', 'lulus');
+            }
+        }
+
+        if($request->input('beasiswa')!= null){
+            if($request->input('beasiswa') == "tidak"){
+                $list_mahasiswa = $list_mahasiswa->where('mhs_spesial', 'tidak');
+            }else if ($request->input('beasiswa')== "mhs_binaan1"){
+                $list_mahasiswa = $list_mahasiswa->where('mhs_spesial', 'mhs_binaan1');
+            }else if ($request->input('beasiswa')== "mhs_binaan2"){
+                $list_mahasiswa = $list_mahasiswa->where('mhs_spesial', 'mhs_binaan2');
+            }
+        }
+
+
+
         if ($request->ajax()){
             return Datatables::of($list_mahasiswa)
             ->addColumn('action', function($data){
