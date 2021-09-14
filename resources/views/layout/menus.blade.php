@@ -26,11 +26,9 @@
                             src="{{asset('app-assets/images/portrait/small/avatar-s-11.jpg')}}" alt="avatar" height="40"
                             width="40"><span class="avatar-status-online"></span></span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-account-settings.html"><i
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user"><a class="disabled dropdown-item" href="page-account-settings.html"><i
                             class="me-50" data-feather="settings"></i>
-                        Pengaturan</a><a class="dropdown-item" href="page-pricing.html"><i class="me-50"
-                            data-feather="credit-card"></i> Pricing</a><a class="dropdown-item" href="page-faq.html"><i
-                            class="me-50" data-feather="help-circle"></i> FAQ</a><a class="dropdown-item"
+                        Pengaturan</a><a class="dropdown-item"
                         href="/logout"><i class="me-50" data-feather="power"></i>Keluar</a>
                 </div>
             </li>
@@ -183,11 +181,11 @@
             <li class=" navigation-header"><span data-i18n="User Interface">Lain-Lain</span><i
                     data-feather="more-horizontal"></i>
             </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="/"><i
+            <li class="disabled nav-item"><a class="d-flex align-items-center" href="/"><i
                         data-feather="settings"></i><span class="menu-title text-truncate"
                         data-i18n="Typography">Pengaturan</span></a>
             </li>
-            <li class=" nav-item"><a class="d-flex align-items-center" href="/"><i
+            <li class="disabled  nav-item"><a class="d-flex align-items-center" href="/"><i
                         data-feather="phone"></i><span class="menu-title text-truncate"
                         data-i18n="Typography">Support</span></a>
             </li>
