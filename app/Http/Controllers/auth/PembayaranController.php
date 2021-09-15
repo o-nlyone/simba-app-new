@@ -44,7 +44,6 @@ class PembayaranController extends Controller
                     'jml_bayar' => $jml,
                     'bukti_bayar' => $imgName
                 ]);
-                $maha = Mahasiswa::where('id', $request->id_mhs)->first();
                 return Redirect::back()->with('ses_success', 'Pembayaran Telah Berhasil Ditambahkan');
             } else {
                 return Redirect::back()->with('ses_error', 'Tagihan Sudah Rp. 0 Kebawah.');

@@ -7,6 +7,7 @@ use App\Models\Mahasiswa;
 use App\Models\Pembayaran;
 use App\Models\Tagihan;
 use App\Models\Tahun_ajaran;
+use App\Models\User;
 use Exception;
 use GrahamCampbell\ResultType\Success;
 use Illuminate\Http\Request;
@@ -35,6 +36,11 @@ class DashboardController extends Controller
 
     public function thnajaran(){
         return view('auth.thnajaran', ['thnajaran' => 'active']);
+    }
+
+    public function pengaturan(){
+        $account = User::all();
+        return view('auth.pengaturan', ['pengaturan' => 'active'], ['account' => $account]);
     }
 
     public function thnajarandelete($id){

@@ -22,7 +22,13 @@
             <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link"
                     id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">{{auth()->user()->name}}</span><span
-                            class="user-status">Admin</span></div><span class="avatar"><img class="round"
+                            class="user-status">
+                            @if (auth()->user()->id == 1)
+                                Master Admin
+                            @else
+                                Admin
+                            @endif
+                            </span></div><span class="avatar"><img class="round"
                             src="{{asset('app-assets/images/portrait/small/default.jpeg')}}" alt="avatar" height="40"
                             width="40"><span class="avatar-status-online"></span></span>
                 </a>
@@ -181,7 +187,7 @@
             <li class=" navigation-header"><span data-i18n="User Interface">Lain-Lain</span><i
                     data-feather="more-horizontal"></i>
             </li>
-            <li class="disabled nav-item"><a class="d-flex align-items-center" href="/"><i
+            <li class="{{$pengaturan ?? 'nav-item'}}"><a class="d-flex align-items-center" href="/pengaturan"><i
                         data-feather="settings"></i><span class="menu-title text-truncate"
                         data-i18n="Typography">Pengaturan</span></a>
             </li>

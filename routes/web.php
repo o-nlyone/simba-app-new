@@ -5,11 +5,12 @@ use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\PembayaranController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\TagihanController;
+use App\Http\Controllers\auth\PengaturanController;
 use App\Models\Pembayaran;
 use GuzzleHttp\Middleware;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
-
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::group(['middleware'=>['guest']], function(){
     Route::get('login', [LoginController::class, 'index'])->name('login');
@@ -31,6 +32,9 @@ Route::group(['middleware'=>['auth']], function(){
     Route::post('bayar', [PembayaranController::class, 'bayar']);
     Route::get('bayar/{id}/delete', [PembayaranController::class, 'deletebayar']);
     Route::post('inputthnajaran', [PembayaranController::class, 'inputthnajaran']);
+    Route::get('pengaturan', [DashboardController::class, 'pengaturan']);
+    Route::post('pengaturan/edit', [PengaturanController::class, 'updateakun']);
+    Route::post('pengaturan/create', [PengaturanController::class, 'createakun']);
 });
 
 
