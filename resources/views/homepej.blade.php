@@ -282,7 +282,59 @@
             </div>
         </section>
         <!--application hosting promo end-->
+<!--testimonial and review section start-->
+<section class="review-section ptb-100 gray-light-bg">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="section-heading">
+                    <h2>Cara Melakukan Pembayaran</h2>
+                    <p>Ikuti Prosedur Berikut Untuk Melakukan Pembayaran Biaya Penyelenggaraan Pendidikan</p>
+                    <a href="#" class="btn btn-outline-brand-01 btn-sm">Ibu Murni</a> &nbsp;
+                    <a href="#" class="btn btn-outline-brand-01 btn-sm">Ibu Nurmila</a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-8">
+                <div class="owl-carousel owl-theme client-testimonial-2 dot-bottom-center custom-dot">
+                    <div class="item">
+                        <div class="border  bg-white p-4 m-3">
+                            <div class="review-body">
+                                <h5>1. Lakukan Konfirmasi Ke Bagian Keuangan</h5>
+                                <p>Mahasiswa menghubungi Bagian Keuangan (Ibu Nurmila/ Ibu Murni) untuk konfirmasi pembayaran BPP.</p>
+                            </div>
 
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="border  bg-white p-4 m-3">
+                            <div class="review-body">
+                                <h5>2. Menerima Informasi Pembayaran</h5>
+                                <p>Bagian Keuangan memberikan informasi jumlah pembayaran BPP + Tunggakan bila ada, disertai No. Rekening Bank Yayasan</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="border  bg-white p-4 m-3">
+                            <div class="review-body">
+                                <h5>3. Melakukan Pembayaran Sesuai Prosedur</h5>
+                                <p>Pembayaran harus melalui Teller Bank yang telah ditentukan (dapat menggunakan VA bila ada) dengan menambahkan di kolom keterangan pada blanko pembayaran bank : STB, Nama, Fakultas, Jenis Pembayaran</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="border  bg-white p-4 m-3">
+                            <div class="review-body">
+                                <h5>4. Mengirimkan Bukti Pembayaran</h5>
+                                <p>Mahasiswa mengirimkan foto / scan bukti pembayaran ke Bagian Keuangan. Bagian Keuangan mengecek keabsahan Bukti Pembayaran yang telah di scan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--testimonial and review section end-->
     </div>
 
     <!--footer section start-->

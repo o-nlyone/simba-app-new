@@ -328,7 +328,7 @@
         });
 
         //Modal Konfirmasi Dee
-        $(document).on('click', '.dee', function () {
+        $(document).on('click', '.delete', function () {
             dataId = $(this).attr('id');
             $('#konfirmasi-modal').modal('show');
         });
@@ -337,7 +337,7 @@
         $('#tombol-hapus').click(function () {
             $.ajax({
                 url: "/datamhs/" + dataId, //eksekusi ajax ke url ini
-                type: 'DEE',
+                type: 'DELETE',
                 beforeSend: function () {
                     $('#tombol-hapus').text('Hapus Data'); //set text untuk tombol hapus
                 },
