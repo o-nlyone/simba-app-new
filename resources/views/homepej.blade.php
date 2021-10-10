@@ -290,8 +290,8 @@
                 <div class="section-heading">
                     <h2>Cara Melakukan Pembayaran</h2>
                     <p>Ikuti Prosedur Berikut Untuk Melakukan Pembayaran Biaya Penyelenggaraan Pendidikan</p>
-                    <a href="#" class="btn btn-outline-brand-01 btn-sm">Ibu Murni</a> &nbsp;
-                    <a href="#" class="btn btn-outline-brand-01 btn-sm">Ibu Nurmila</a>
+                    <a href="https://wa.me/6285397876168" class="btn btn-outline-brand-01 btn-sm">Ibu Murni</a> &nbsp;
+                    <a href="https://wa.me/6285242732331" class="btn btn-outline-brand-01 btn-sm">Ibu Nurmila</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-8">
